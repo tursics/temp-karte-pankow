@@ -9,17 +9,18 @@
 	<!-- put in your app icon here -->
 
     <!-- put in the lib here -->
-    <link rel="stylesheet" href="https://unpkg.com/ddj.map@1.0.10/dist/ddj.map.css" />
-    <script src="https://unpkg.com/ddj.map@1.0.10/dist/ddj.map.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/ddj.map@1.0.11/dist/ddj.map.css" />
+    <script src="https://unpkg.com/ddj.map@1.0.11/dist/ddj.map.js"></script>
 
 	<!-- put in the data here -->
-	<meta name="ddj:data" content="data/travel.geojson">
-	<meta name="ddj:dataType" content="json">
+<!--	<meta name="ddj:data" content="data/travel.geojson"> -->
+    <meta name="ddj:data" content="https://raw.githubusercontent.com/tursics/thought-karte-pankow/main/data/travel.geojson">
+	<meta name="ddj:dataType" content="geojson">
 	<meta name="ddj:dataUniqueIdentifier" content="id">
 
 	<!-- put in the map here -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
     <meta name="ddj:mapCenter" content="52.588843, 13.440145"> <!-- center of Berlin-Pankow -->
 	<meta name="ddj:mapZoom" content="12">
 
@@ -51,6 +52,7 @@
                 <li>Das ist eine interaktive Karte</li>
                 <li>Sie ist online</li>
                 <li>Es gibt eine URL zum herumspielen</li>
+                <li>Eine erste Linie ist sichtbar</li>
             </ul>
         </div>
     </div>    

@@ -10,3 +10,5 @@ Wer lieber PDFs mag, dann [dieses PDF](https://gruene-pankow.de/userspace/BE/kv_
 
 - [Datenlizenz Deutschland - Namensnennung - Version 2.0](https://www.govdata.de/dl-de/by-2-0)
   - [Geoportal Berlin / ALKIS Berlin Ortsteil](https://fbinter.stadt-berlin.de/fb/index.jsp?loginkey=zoomStart&mapId=ortsteil@senstadt&bbox=364375,5802285,421587,5835248)
+- [Creative Commons Namensnennung](http://creativecommons.org/licenses/by/3.0/de/)
+  - [VBB - Verkehrsverbund Berlin-Brandenburg GmbH](https://daten.berlin.de/datensaetze/vbb-linienfarben)

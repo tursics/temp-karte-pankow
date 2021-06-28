@@ -3,10 +3,10 @@ ddj.autostart.onDone(function() {
 });
 
 ddj.autostart.onAddMarker(function(properties, value) {
-    if (properties.type === 'regio') {
+/*    if (properties.type === 'regio') {
         properties.borderColor = 'red';
         properties.borderWeight = 4;
-    }
+    }*/
 
     return true;
 });

@@ -12,3 +12,6 @@ Wer lieber PDFs mag, dann [dieses PDF](https://gruene-pankow.de/userspace/BE/kv_
   - [Geoportal Berlin / ALKIS Berlin Ortsteil](https://fbinter.stadt-berlin.de/fb/index.jsp?loginkey=zoomStart&mapId=ortsteil@senstadt&bbox=364375,5802285,421587,5835248)
 - [Creative Commons Namensnennung](http://creativecommons.org/licenses/by/3.0/de/)
   - [VBB - Verkehrsverbund Berlin-Brandenburg GmbH](https://daten.berlin.de/datensaetze/vbb-linienfarben)
+- Info-Seiten der Senatsverwaltung für Umwelt, Verkehr und Klimaschutz
+  - [Straßenbahnneubaustrecke Tangentialverbindung Pankow-Heinersdorf - Weißensee](https://www.berlin.de/sen/uvk/verkehr/verkehrsplanung/oeffentlicher-personennahverkehr/projekte-in-planung/pankow-heinersdorf-weissensee/)
+  - [Straßenbahnneubaustrecke Blankenburger Süden](https://www.berlin.de/sen/uvk/verkehr/verkehrsplanung/oeffentlicher-personennahverkehr/projekte-in-planung/blankenburger-sueden/)

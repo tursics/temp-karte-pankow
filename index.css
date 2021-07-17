@@ -1,0 +1,244 @@
+[data-controls] .searchInput {
+	height: 2.2em;
+	width: 17em;
+}
+[data-controls] .searchInput div {
+	background: #fff;
+	border: 1px solid #2a2a2a;
+	text-shadow: none;
+	border-radius: 0;
+	box-shadow: none;
+	float: right;
+	margin: 0;
+	font-size: 13px;
+}
+[data-controls] .ui-controlgroup-horizontal .ui-btn,
+[data-controls] .ui-select .ui-btn {
+		background: #fff;
+	border: 1px solid #2a2a2a;
+	color: #2a2a2a;
+	font-weight: 500;
+	text-shadow: none;
+	border-radius: 0;
+	box-shadow: none;
+	margin: 0;
+	padding: 0.7em 0.5em;
+	font-size:13px;
+}
+[data-controls] .ui-controlgroup-horizontal .ui-btn.ui-btn-active {
+	background: #2a2a2a;
+	color: #fff;
+}
+[data-controls] .searchInput div:nth-child(1) {
+	border-left: none;
+	border-radius: 0 1.2em 1.2em 0;
+	width: 14em;
+}
+[data-controls] .ui-controlgroup-horizontal .ui-btn.ui-first-child {
+	border-right: none;
+	border-radius: 1.2em 0 0 1.2em;
+}
+[data-controls] .searchInput div:nth-child(2) {
+	border-right: none;
+	border-radius: 1.2em 0 0 1.2em;
+	height: 2.2em;
+}
+[data-controls] .ui-controlgroup-horizontal .ui-btn.ui-last-child {
+	border-right: none;
+	border-radius: 0 1.2em 1.2em 0;
+}
+[data-controls] .ui-select .ui-btn {
+	border-radius: 1.2em;
+}
+[data-controls] .ui-btn-icon-right:after {
+	background-color: #2a2a2a;
+}
+[data-controls] .searchInput i {
+	padding: .6em 0 0 .6em;
+	color: #2a2a2a;
+}
+[data-controls] .searchInput input::placeholder {
+	color: #2a2a2a;
+}
+
+/* big sign */
+
+[data-controls] {
+	bottom: 20px;
+	font-family: 'Montserrat', sans-serif;
+	font-style: normal;
+	hyphens: auto;
+	max-height: 100vh;
+	max-width: 15em;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	padding: 0;
+	perspective: 600px;
+	pointer-events: none;
+	position: absolute;
+	right: 46px;
+	width: 15em;
+	z-index: 1001;
+}
+
+/*[data-controls]:after {
+	background: url('assets/sign-block.svg');
+	background-color: transparent;
+	background-position: top;
+	background-repeat: no-repeat;
+	background-size: 15em 6em;
+	content: '';
+	display: block;
+	height: 6.1em;
+}*/
+
+[data-controls] .sign {
+	background: #fff;
+	border: #2a2a2a solid 1px;
+	box-shadow: #2a2a2a 0 0 1px;
+	margin: 1.2em .2em 0 0;
+	min-height: 4em;
+	pointer-events: auto;
+}
+
+[data-controls] .sign > h3 {
+	height: 2.5em;
+	margin: 0;
+	padding: .5em;
+}
+[data-controls] .sign > h3 .logo img {
+	float: right;
+	height: 2.5em;
+}
+
+[data-controls] .sign > div {
+	font-size: 13px;
+	padding: .5em;
+}
+
+[data-controls] .sign > div.signLine {
+	background: #2a2a2a;
+	color: #fff;
+	text-shadow: none;
+}
+
+[data-controls] .signLine .ui-input-text,
+[data-controls] .signLine .ui-select {
+    display: inline-block;
+	float: right;
+}
+[data-controls] .signLine .ui-input-text input {
+   width: 4rem;
+}
+[data-controls] .clear {
+   clear: both;
+}
+
+[data-controls] input[type=number] {
+	font-size: 13px;
+	font-family: 'Montserrat', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+}
+[data-controls] input::-webkit-input-placeholder {
+	color: #aaa;
+}
+[data-controls] input::-moz-placeholder {
+	color: #aaa;
+}
+[data-controls] input:-ms-input-placeholder {
+	color: #aaa;
+}
+[data-controls] input:-moz-placeholder {
+	color: #aaa;
+}
+[data-controls] input[type=number] {
+	background: #fff;
+	color: #2a2a2a;
+	border: 1px solid #2a2a2a;
+	text-shadow: none;
+	border-radius: 2em;
+	box-shadow: none;
+	margin: 0;
+	font-size: 13px;
+	font-family: 'Montserrat', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+}
+[data-controls] input[type=number]::-webkit-inner-spin-button, [data-controls] input[type=number]::-webkit-outer-spin-button {
+	opacity: 1;
+	border: 1px solid green;
+}
+[data-controls] .ui-input-text {
+	border: none;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	text-shadow: none;
+}
+
+@media (max-width: 30em) {
+	[data-controls] {
+		bottom: 0;
+		left: -5px;
+		max-width: none;
+		perspective: none;
+		right: -8px;
+		width: auto;
+		z-index: 5;
+	}
+	[data-controls]:after {
+		display: none;
+	}
+	[data-controls] .sign {
+		border-bottom: 0;
+		border-left: 0;
+		border-right: 0;
+		padding-bottom: 15px;
+		padding-right: 45px;
+	}
+}
+
+/* receipt */
+
+#receipt {
+	display:none;
+}
+
+/* colorful */
+
+[data-controls] .sign {
+	background-color: #fff;
+	border-color: #2afa2a;
+}
+[data-controls] .sign > div.signLine {
+	background-color: #2afa2a;
+	color: #000;
+}
+[data-controls] .ui-controlgroup-horizontal .ui-btn,
+[data-controls] .ui-select .ui-btn {
+	background-color: #2afa2a;
+	border: 1px solid #2a8a2a;
+	color: #000;
+}
+[data-controls] .ui-controlgroup-horizontal .ui-btn.ui-btn-active {
+	background: #2a8a2a;
+	color: #fff;
+}
+[data-controls] input[type=number] {
+	background: #2afa2a;
+	color: #000;
+	border-color: #2a8a2a;
+}
+[data-controls] .ui-btn-icon-right:after {
+	background-color: #2a8a2a;
+}
+[data-controls] .searchInput div {
+	background: #2afa2a;
+	border-color: #2a8a2a;
+}
+[data-controls] .searchInput i {
+	color: #000;
+}
+[data-controls] .searchInput input::placeholder {
+	color: #2a8a2a;
+}

@@ -33,6 +33,7 @@
 
     <!-- dirty hacks -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.css" />
+	<link rel="stylesheet" href="index.css" />
 	<script src="https://kit.fontawesome.com/d2a4339e1e.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="index.js"></script>
@@ -64,17 +65,109 @@
         </div>
     </div>
 
+    <div data-controls>
+        <div class="sign config hideMobile">
+            <div class="signLine">
+                Zeige auf der Karte...
+            </div>
+            <div>
+                <div>
+                    Kiez:
+                    <select id="select-area" data-mini="true">
+                        <option value="1100000303">Bezirk Pankow</option>
+                        <option data-role="divider" disabled></option>
+                        <option value="110000030303">Blankenburg</option>
+                        <option value="110000030308">Blankenfelde</option>
+                        <option value="110000030309">Buch</option>
+                        <option value="110000030310">Französisch Buchholz</option>
+                        <option value="110000030304">Heinersdorf</option>
+                        <option value="110000030305">Karow</option>
+                        <option value="110000030311">Niederschönhausen</option>
+                        <option value="110000030307">Pankow</option>
+                        <option value="110000030301">Prenzlauer Berg</option>
+                        <option value="110000030312">Rosenthal</option>
+                        <option value="110000030306">Stadtrandsiedlung Malchow</option>
+                        <option value="110000030302">Weißensee</option>
+                        <option value="110000030313">Wilhelmsruh</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="sign visibleWithoutErrors" id="infoSign" style="display: none !important;">
+            <h3>
+                Schulplätze an Grundschulen
+            </h3>
+            <div class="signLine">
+                Berlin-Mitte, Lichtenberg und Marzahn-Hellersdorf
+            </div>
+            <div>
+                Stöbern sie auf der Karte und klicken sie auf einzelne Schulen für weitere Informationen.
+            </div>
+            <div class="visibleWithData hideMobile" style="padding-bottom: 0;">
+                Oder suchen sie nach einer Schule:
+            </div>
+            <div class="searchInput visibleWithData hideMobile">
+                <input type="text" name="schools" id="autocomplete" placeholder="hier suchen" />
+                <div><i class="fa fa-search" aria-hidden="true"></i></div>
+            </div>
+            <div class="visibleWithoutData center">
+                <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+            </div>
+            <div class="hideMobile" style="padding: .5em 0 0 0">
+                <img src="assets/bima-rahmanda-unsplash.png" style="width: 100%">
+            </div>
+            <div class="showMobile" style="font-style: italic">
+                <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+                Hinweis: Nicht alle Funktionalitäten werden auf dem Handy angezeigt.
+            </div>
+        </div>
+        <div class="sign normal" id="receipt" data-quickinfo="_box" style="display: none !important;">
+            <h3>
+                Planungsregion <span data-quickdata="regiontitle"></span>
+            </h3>
+            <div class="signLine"><span data-quickdata="district"></span></div>
+            <div>
+                <div><span data-quickdata="title"></span> (<span data-quickdata="BSN"></span>)</div>
+                <div data-quickdata="address"></div>
+                <div><span data-quickdata="zip"></span> Berlin</div>
+                <div class="empty"></div>
+                <div data-quickdata="notes"></div>
+                <div class="empty"></div>
+                <div class="bold">Platz in der Schule</div>
+
+                <div data-hide-if-zero="startingclassesCurrent">Es werden <span data-quickdata="startingclassesCurrent"></span> Klassen aufgenommen</div>
+
+                <div data-hide-if-zero="studentsCurrent"><span data-hide-if-zero="startingclassesCurrent">Voraussichtlich ca. </span><span data-hide-if-zero="startingstudentsCurrent">Voraussichtlich ca. </span><span data-quickdata="studentsCurrent"></span> Schüler*innen</div>
+                <div><span data-quickdata="draftinessCurrent"></span> Züge mit <span data-quickdata="seatsCurrent"></span> Plätzen</div>
+                <div data-hide-if-zero="workloadCurrent"><span data-quickdata="workloadCurrent"></span>% Auslastung</div>
+                <div data-hide-if-zero="classsizesCurrent"><span data-quickdata="classsizesCurrent"></span> Ø Frequenz laut Zügigkeit</div>
+            </div>
+            <div id="receiptClose" data-quickinfo="close"><i class="fa fa-chevron-left" aria-hidden="true"></i>schließen</div>
+        </div>
+        <div class="sign visibleWithErrors" id="errorPAge">
+            <h3>
+                Es ist ein Fehler aufgetreten
+            </h3>
+            <div class="signLine">
+                Entschuldigung, das hätte nicht passieren sollen
+            </div>
+            <div>
+                Bitte lade diese Seite noch einmal neu oder schicke mir eine <a href="mailto:thomas@tursics.de">Nachricht per E-Mail</a>.
+            </div>
+        </div>
+    </div>
+
     <div data-role="popup" data-tutorial="dialog" id="popupTutorial" data-theme="b" class="ui-corner-all">
         <div data-tutorial="page">
             <h2>Karte von Pankow</h2>
             <div>
-                Stück für Stück: 
+                Das Projekt ist noch in Arbeit
             </div>
             <ul>
                 <li>Das ist eine interaktive Karte</li>
                 <li>Sie ist online</li>
                 <li>Es gibt eine URL zum herumspielen</li>
-                <li>Die Regio-Linien sind sichtbar</li>
+                <li>Viele ÖPNV-Linien sind bereits sichtbar</li>
             </ul>
         </div>
     </div>    

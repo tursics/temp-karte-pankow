@@ -34,6 +34,8 @@ function dataUpdated() {
             if (layer.feature.properties.sch === (layerPrefix + userInput.areaId)) {
                 layer.options.fill = false;
                 layer.options.stroke = true;
+
+                map.fitBounds(layer.getBounds());
             } else {
                 layer.options.fill = true;
                 layer.options.stroke = false;

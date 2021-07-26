@@ -40,11 +40,13 @@ function dataUpdated() {
             if (layer.feature.properties.sch === (layerPrefix + userInput.areaId)) {
                 layer.options.fill = false;
                 layer.options.stroke = true;
+                layer.options.color = '#000';
                 layerSelected = layer;
 
                 map.fitBounds(layerSelected.getBounds());
             } else {
                 layer.options.fill = true;
+                layer.options.fillColor = 'white';
                 layer.options.stroke = false;
             }
             map.addLayer(layer);
@@ -55,9 +57,11 @@ function dataUpdated() {
         var layer = layers.lines[l];
         if (userInput.areaId === 'all') {
             map.removeLayer(layer);
+            layer.options.weight = '4';
             map.addLayer(layer);
         } else {
             map.removeLayer(layer);
+            layer.options.weight = '4';
 
             var intersection = turf.lineIntersect(layer.toGeoJSON(), layerSelected.toGeoJSON());
             if (intersection && intersection.features && (intersection.features.length > 0)) {
@@ -73,9 +77,12 @@ ddj.autostart.onDone(function() {
     initLayers();
 
     $('#select-area')
+        .val(userInput.areaId)
         .change(function() {
             userInput.areaTitle = $('#select-area option:selected').text();
             userInput.areaId = $('#select-area option:selected').val();
+
+            ddj.url.push({area: userInput.areaId});
 
             dataUpdated();
         })
@@ -89,4 +96,13 @@ ddj.autostart.onAddMarker(function(properties, value) {
     }*/
 
     return true;
+});
+
+ddj.autostart.onInitURL(function(obj) {
+    var area = obj.area || 'all';
+    userInput.areaId = area;
+});
+
+ddj.autostart.onKeyValueLinkClicked(function(key, value) {
+    console.log(key, value);
 });

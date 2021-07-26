@@ -4,6 +4,7 @@ var userInput = {
 };
 
 var layers = {
+    bounds: null,
     areas: [],
     lines: []
 }
@@ -16,6 +17,8 @@ function initLayers() {
             layers.areas.push(layer);
         } else if (layer && layer.feature && layer.feature.properties && layer.feature.properties.type && (-1 !== lineTypes.indexOf(layer.feature.properties.type.trim()))) {
             layers.lines.push(layer);
+        } else if (layer && layer.feature && layer.feature.properties && layer.feature.properties.Gemeinde_name && (layer.feature.properties.Gemeinde_name === 'Pankow')) {
+            layers.bounds = layer;
         }
     });
 }
@@ -42,8 +45,6 @@ function dataUpdated() {
                 layer.options.stroke = true;
                 layer.options.color = '#000';
                 layerSelected = layer;
-
-                map.fitBounds(layerSelected.getBounds());
             } else {
                 layer.options.fill = true;
                 layer.options.fillColor = 'white';
@@ -51,6 +52,16 @@ function dataUpdated() {
             }
             map.addLayer(layer);
         }
+    }
+
+    if (layerSelected) {
+        map.fitBounds(layerSelected.getBounds());
+    } else {
+        var bounds = layers.areas[0].getBounds();
+        for (var l = 1; l < layers.areas.length; ++l) {
+            bounds = bounds.extend(layers.areas[l].getBounds());
+        }
+        map.fitBounds(bounds);
     }
 
     for (var l = 0; l < layers.lines.length; ++l) {

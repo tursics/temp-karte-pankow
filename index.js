@@ -23,6 +23,21 @@ function initLayers() {
     });
 }
 
+function showLineDetails(lines) {
+    var html = '';
+
+    for (var l = 0; l < lines.length; ++l) {
+        var line = lines[l];
+        var color = line.linecolor;
+        var type = line.type;
+        var title = line.title;
+
+        html += '<span style="padding:0 .5rem;margin-right:.5rem;background:' + color + ';"></span>' + title + '<br>';
+    }
+
+    $('#line-list').html(html);
+}
+
 function dataUpdated() {
 	'use strict';
 
@@ -64,12 +79,14 @@ function dataUpdated() {
         map.fitBounds(bounds);
     }
 
+    var lines = [];
     for (var l = 0; l < layers.lines.length; ++l) {
         var layer = layers.lines[l];
         if (userInput.areaId === 'all') {
             map.removeLayer(layer);
             layer.options.weight = '4';
             map.addLayer(layer);
+//            lines.push(layer.feature.properties);
         } else {
             map.removeLayer(layer);
             layer.options.weight = '4';
@@ -77,10 +94,12 @@ function dataUpdated() {
             var intersection = turf.lineIntersect(layer.toGeoJSON(), layerSelected.toGeoJSON());
             if (intersection && intersection.features && (intersection.features.length > 0)) {
                 map.addLayer(layer);
+                lines.push(layer.feature.properties);
             }
         }
     }
 
+    showLineDetails(lines);
 //    ddj.marker.update();
 }
 
@@ -94,6 +113,9 @@ ddj.autostart.onDone(function() {
             userInput.areaId = $('#select-area option:selected').val();
 
             ddj.url.push({area: userInput.areaId});
+
+            var shareURI = 'https://tursics.github.io/thought-karte-pankow/index.html?area=' + userInput.areaId;
+            document.querySelector('meta[name="ddj:shareURI"]').setAttribute('content', shareURI);
 
             dataUpdated();
         })

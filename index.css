@@ -99,6 +99,7 @@
 	margin: 1.2em .2em 0 0;
 	min-height: 4em;
 	pointer-events: auto;
+	text-shadow: none;
 }
 
 [data-controls] .sign > h3 {

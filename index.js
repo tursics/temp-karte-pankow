@@ -1,6 +1,9 @@
 var userInput = {
 	areaId: 'all',
 	areaTitle: 'Bezirk Pankow',
+    highlightLine: null,
+    highlightLayer: null,
+    highlightLayerBorder: null,
 };
 
 var layers = {
@@ -31,8 +34,13 @@ function showLineDetails(lines) {
         var color = line.linecolor;
         var type = line.type;
         var title = line.title;
+        var id = line.id;
 
-        html += '<span style="padding:0 .5rem;margin-right:.5rem;background:' + color + ';"></span>' + title + '<br>';
+        if (id === userInput.highlightLine) {
+            html += '<span style="background:#f5fa2a;margin-left:-.5rem;padding:0 .5rem;font-weight:700"><span style="padding:0 .5rem;margin-right:.5rem;background:' + color + ';"></span>' + title + '</span><br>';
+        } else {
+            html += '<span style="padding:0 .5rem;margin-right:.5rem;background:' + color + ';"></span><a href="#" data-key="line" data-value="' + id + '">' + title + '</a><br>';
+        }
     }
 
     $('#line-list').html(html);
@@ -79,6 +87,15 @@ function dataUpdated() {
         map.fitBounds(bounds);
     }
 
+    if (userInput.highlightLayer) {
+        map.removeLayer(userInput.highlightLayer);
+        userInput.highlightLayer = null;
+    }
+    if (userInput.highlightLayerBorder) {
+        map.removeLayer(userInput.highlightLayerBorder);
+        userInput.highlightLayerBorder = null;
+    }
+
     var lines = [];
     for (var l = 0; l < layers.lines.length; ++l) {
         var layer = layers.lines[l];
@@ -91,12 +108,35 @@ function dataUpdated() {
             map.removeLayer(layer);
             layer.options.weight = '4';
 
+            if (userInput.highlightLine === layer.feature.properties.id) {
+                userInput.highlightLayer = L.geoJson(layer.toGeoJSON());
+                var key = Object.keys(userInput.highlightLayer._layers)[0];
+                userInput.highlightLayer = userInput.highlightLayer._layers[key];
+
+                userInput.highlightLayer.options.color = layer.options.color;
+                userInput.highlightLayer.options.weight = layer.options.weight;
+
+                userInput.highlightLayerBorder = L.geoJson(layer.toGeoJSON());
+                key = Object.keys(userInput.highlightLayerBorder._layers)[0];
+                userInput.highlightLayerBorder = userInput.highlightLayerBorder._layers[key];
+
+                userInput.highlightLayerBorder.options.color = '#fff';
+                userInput.highlightLayerBorder.options.weight = parseInt(layer.options.weight, 10) + 10;
+            }
+
             var intersection = turf.lineIntersect(layer.toGeoJSON(), layerSelected.toGeoJSON());
             if (intersection && intersection.features && (intersection.features.length > 0)) {
                 map.addLayer(layer);
                 lines.push(layer.feature.properties);
             }
         }
+    }
+
+    if (userInput.highlightLayerBorder) {
+        map.addLayer(userInput.highlightLayerBorder);
+    }
+    if (userInput.highlightLayer) {
+        map.addLayer(userInput.highlightLayer);
     }
 
     showLineDetails(lines);
@@ -137,5 +177,9 @@ ddj.autostart.onInitURL(function(obj) {
 });
 
 ddj.autostart.onKeyValueLinkClicked(function(key, value) {
-    console.log(key, value);
+    if (key === 'line') {
+        userInput.highlightLine = parseInt(value, 10);
+
+        dataUpdated();
+    }
 });

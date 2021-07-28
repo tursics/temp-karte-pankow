@@ -243,3 +243,10 @@
 [data-controls] .searchInput input::placeholder {
 	color: #2a8a2a;
 }
+.ui-btn.ui-btn-inline {
+	background: #2afa2a !important;
+	border-color: #2a8a2a !important;
+	border-radius: 2rem !important;
+	box-shadow: none;
+	text-shadow: none !important;
+}

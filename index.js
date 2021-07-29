@@ -34,12 +34,12 @@ function showLineDetails(lines) {
         var color = line.linecolor;
         var type = line.type;
         var title = line.title;
-        var id = line.id;
+        var uuid = line.uuid;
 
-        if (id === userInput.highlightLine) {
+        if (uuid === userInput.highlightLine) {
             html += '<span style="background:#f5fa2a;margin-left:-.5rem;padding:0 .5rem;font-weight:700"><span style="padding:0 .5rem;margin-right:.5rem;background:' + color + ';"></span>' + title + '</span><br>';
         } else {
-            html += '<span style="padding:0 .5rem;margin-right:.5rem;background:' + color + ';"></span><a href="#" data-key="line" data-value="' + id + '">' + title + '</a><br>';
+            html += '<span style="padding:0 .5rem;margin-right:.5rem;background:' + color + ';"></span><a href="#" data-key="line" data-value="' + uuid + '">' + title + '</a><br>';
         }
     }
 
@@ -108,7 +108,7 @@ function dataUpdated() {
             map.removeLayer(layer);
             layer.options.weight = '4';
 
-            if (userInput.highlightLine === layer.feature.properties.id) {
+            if (userInput.highlightLine === layer.feature.properties.uuid) {
                 userInput.highlightLayer = L.geoJson(layer.toGeoJSON());
                 var key = Object.keys(userInput.highlightLayer._layers)[0];
                 userInput.highlightLayer = userInput.highlightLayer._layers[key];
@@ -182,4 +182,8 @@ ddj.autostart.onKeyValueLinkClicked(function(key, value) {
 
         dataUpdated();
     }
+});
+
+ddj.autostart.onSelected(function(selectedItem) {
+    console.log(selectedItem);
 });

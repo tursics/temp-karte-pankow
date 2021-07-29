@@ -154,7 +154,7 @@ ddj.autostart.onDone(function() {
 
             ddj.url.push({area: userInput.areaId});
 
-            var shareURI = 'https://tursics.github.io/thought-karte-pankow/index.html?area=' + userInput.areaId;
+            var shareURI = 'https://tursics.de/story/oepnv-pankow/index.html?area=' + userInput.areaId;
             document.querySelector('meta[name="ddj:shareURI"]').setAttribute('content', shareURI);
 
             dataUpdated();

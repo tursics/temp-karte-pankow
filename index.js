@@ -185,5 +185,7 @@ ddj.autostart.onKeyValueLinkClicked(function(key, value) {
 });
 
 ddj.autostart.onSelected(function(selectedItem) {
-    console.log(selectedItem);
+    userInput.highlightLine = parseInt(selectedItem.properties.uuid, 10);
+
+    dataUpdated();
 });

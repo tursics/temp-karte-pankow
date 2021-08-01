@@ -149,9 +149,17 @@ function dataUpdated() {
     }
 
     if (userInput.areaId === '') {
+        $('#sign-line-headline').text('');
         $('#sign-select-area').show();
         $('#sign-select-line').hide();
     } else {
+        $('#sign-line-headline').text('');
+        $("#select-area option").each(function() {
+            if ($(this).val() === userInput.areaId) {
+                $('#sign-line-headline').text($(this).text());
+            }
+        });
+
         $('#sign-select-area').hide();
         $('#sign-select-line').show();
     }

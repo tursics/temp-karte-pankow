@@ -127,7 +127,7 @@ function dataUpdated() {
                 key = Object.keys(userInput.highlightLayerBorder._layers)[0];
                 userInput.highlightLayerBorder = userInput.highlightLayerBorder._layers[key];
 
-                userInput.highlightLayerBorder.options.color = '#fff';
+                userInput.highlightLayerBorder.options.color = '#8dcf7f';
                 userInput.highlightLayerBorder.options.weight = parseInt(layer.options.weight, 10) + 10;
             }
 

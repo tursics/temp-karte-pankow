@@ -1,5 +1,5 @@
 var userInput = {
-	areaId: 'all',
+	areaId: '',
 	areaTitle: 'Bezirk Pankow',
     highlightLine: null,
     highlightLayer: null,
@@ -61,6 +61,13 @@ function dataUpdated() {
         var layer = layers.areas[l];
         if (userInput.areaId === 'all') {
             map.removeLayer(layer);
+        } else if (userInput.areaId === '') {
+            map.removeLayer(layer);
+            layer.options.fill = true;
+            layer.options.fillColor = '#5bba47';
+            layer.options.stroke = true;
+            layer.options.color = '#fff';
+            map.addLayer(layer);
         } else {
             map.removeLayer(layer);
             if (layer.feature.properties.sch === (layerPrefix + userInput.areaId)) {
@@ -141,6 +148,14 @@ function dataUpdated() {
         map.addLayer(userInput.highlightLayer);
     }
 
+    if (userInput.areaId === '') {
+        $('#sign-select-area').show();
+        $('#sign-select-line').hide();
+    } else {
+        $('#sign-select-area').hide();
+        $('#sign-select-line').show();
+    }
+
     showLineDetails(lines);
 //    ddj.marker.update();
 }
@@ -174,7 +189,7 @@ ddj.autostart.onAddMarker(function(properties, value) {
 });
 
 ddj.autostart.onInitURL(function(obj) {
-    var area = obj.area || 'all';
+    var area = obj.area || '';
     userInput.areaId = area;
 });
 
@@ -183,11 +198,31 @@ ddj.autostart.onKeyValueLinkClicked(function(key, value) {
         userInput.highlightLine = parseInt(value, 10);
 
         dataUpdated();
+    } else if (key === 'area') {
+        userInput.areaId = '';
+        userInput.highlightLine = null;
+
+        ddj.url.push({area: userInput.areaId});
+
+        var shareURI = 'https://tursics.de/story/oepnv-pankow/index.html?area=' + userInput.areaId;
+        document.querySelector('meta[name="ddj:shareURI"]').setAttribute('content', shareURI);
+
+        dataUpdated();
     }
 });
 
 ddj.autostart.onSelected(function(selectedItem) {
     userInput.highlightLine = parseInt(selectedItem.properties.uuid, 10);
+
+    if ((userInput.areaId === '') && (selectedItem.properties.sch)) {
+        var area = selectedItem.properties.sch.substr(-2);
+        userInput.areaId = area;
+
+        ddj.url.push({area: userInput.areaId});
+
+        var shareURI = 'https://tursics.de/story/oepnv-pankow/index.html?area=' + userInput.areaId;
+        document.querySelector('meta[name="ddj:shareURI"]').setAttribute('content', shareURI);
+    }
 
     dataUpdated();
 });

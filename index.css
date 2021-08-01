@@ -183,9 +183,9 @@
 		left: -5px;
 		max-width: none;
 		perspective: none;
-		right: -8px;
+		right: -5px;
 		width: auto;
-		z-index: 5;
+		z-index: 500;
 	}
 	[data-controls]:after {
 		display: none;
@@ -231,7 +231,7 @@
 	border-color: #3c8025;
 }
 [data-controls] .ui-btn-icon-right:after {
-	background-color: #3c8025;
+	background-color: #5bba47;
 }
 [data-controls] .searchInput div {
 	background: #5bba47;
@@ -252,11 +252,18 @@
 	text-shadow: none !important;
 }
 .leaflet-touch .leaflet-bar a {
-	background: #5bba47 !important;
+	background: #3c8025 !important;
 	border-color: #fff;
 	color: #fff;
 	text-shadow: none !important;
 }
 .leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar {
 	border-color: #fff;
+}
+.leaflet-container .leaflet-control-attribution a {
+    color: #3c8025 !important;
+}
+#sign-select-line a {
+	text-decoration: none;
+	color: #3c8025;
 }

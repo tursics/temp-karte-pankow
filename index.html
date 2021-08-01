@@ -70,13 +70,12 @@
     </div>
 
     <div data-controls>
-        <div class="sign config hideMobile">
+        <div id="sign-select-area" class="sign config" style="display: none;">
             <div class="signLine">
-                Zeige auf der Karte...
+                Wähle deinen Ortsteil
             </div>
             <div>
                 <div>
-                    Kiez:
                     <select id="select-area" data-mini="true">
                         <option value="all">Bezirk Pankow</option>
                         <option data-role="divider" disabled></option>
@@ -97,9 +96,12 @@
                 </div>
             </div>
         </div>
-        <div class="sign config">
+        <div id="sign-select-line" class="sign config" style="display: none;">
             <div class="signLine">
                 Linien
+            </div>
+            <div>
+                <a href="#" data-key="area" data-value="overview"><i class="fas fa-arrow-left"></i> Zeige ganz Pankow</a>
             </div>
             <div>
                 <div id="line-list"></div>
@@ -174,7 +176,7 @@
             <h3>Öffis vor! Unser Plan für Pankow</h3>
             <div>
                 Diese Kartenanwendung visualisiert das ÖPNV-Zielkonzept des Kreisverband Pankow vom 8. Juni 2021.
-                Die technische Umsetzung erfolgt durch <a href="https://www.tursics.de/about/de/" target="_blank">Thomas Tursics</a>.
+                Die technische Umsetzung erfolgte durch <a href="https://www.tursics.de/about/de/" target="_blank">Thomas Tursics</a>.
             </div>
             <h3>Datenquellen und Lizenzen</h3>
             <div style="font-size: .8rem;">

@@ -209,44 +209,54 @@
 
 [data-controls] .sign {
 	background-color: #fff;
-	border-color: #2afa2a;
+	border-color: #3c8025;
 }
 [data-controls] .sign > div.signLine {
-	background-color: #2afa2a;
-	color: #000;
+	background-color: #3c8025;
+	color: #fff;
 }
 [data-controls] .ui-controlgroup-horizontal .ui-btn,
 [data-controls] .ui-select .ui-btn {
-	background-color: #2afa2a;
-	border: 1px solid #2a8a2a;
-	color: #000;
+	background-color: #5bba47;
+	border: 1px solid #3c8025;
+	color: #fff;
 }
 [data-controls] .ui-controlgroup-horizontal .ui-btn.ui-btn-active {
-	background: #2a8a2a;
+	background: #3c8025;
 	color: #fff;
 }
 [data-controls] input[type=number] {
-	background: #2afa2a;
-	color: #000;
-	border-color: #2a8a2a;
+	background: #5bba47;
+	color: #fff;
+	border-color: #3c8025;
 }
 [data-controls] .ui-btn-icon-right:after {
-	background-color: #2a8a2a;
+	background-color: #3c8025;
 }
 [data-controls] .searchInput div {
-	background: #2afa2a;
-	border-color: #2a8a2a;
+	background: #5bba47;
+	border-color: #3c8025;
 }
 [data-controls] .searchInput i {
 	color: #000;
 }
 [data-controls] .searchInput input::placeholder {
-	color: #2a8a2a;
+	color: #3c8025;
 }
 .ui-btn.ui-btn-inline {
-	background: #2afa2a !important;
-	border-color: #2a8a2a !important;
+	background: #5bba47 !important;
+	border-color: #3c8025 !important;
 	border-radius: 2rem !important;
+	color: #fff !important;
 	box-shadow: none;
 	text-shadow: none !important;
+}
+.leaflet-touch .leaflet-bar a {
+	background: #5bba47 !important;
+	border-color: #fff;
+	color: #fff;
+	text-shadow: none !important;
+}
+.leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar {
+	border-color: #fff;
 }

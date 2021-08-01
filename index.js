@@ -124,10 +124,12 @@ function dataUpdated() {
                 userInput.highlightLayerBorder.options.weight = parseInt(layer.options.weight, 10) + 10;
             }
 
-            var intersection = turf.lineIntersect(layer.toGeoJSON(), layerSelected.toGeoJSON());
-            if (intersection && intersection.features && (intersection.features.length > 0)) {
-                map.addLayer(layer);
-                lines.push(layer.feature.properties);
+            if (layerSelected) {
+                var intersection = turf.lineIntersect(layer.toGeoJSON(), layerSelected.toGeoJSON());
+                if (intersection && intersection.features && (intersection.features.length > 0)) {
+                    map.addLayer(layer);
+                    lines.push(layer.feature.properties);
+                }
             }
         }
     }

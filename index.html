@@ -77,21 +77,21 @@
             <div>
                 <div>
                     <select id="select-area" data-mini="true">
-                        <option value="all">Bezirk Pankow</option>
+                        <option value="all" data-hashtag="">Bezirk Pankow</option>
                         <option data-role="divider" disabled></option>
-                        <option value="03">Blankenburg</option>
-                        <option value="08">Blankenfelde</option>
-                        <option value="09">Buch</option>
-                        <option value="10">Französisch Buchholz</option>
-                        <option value="04">Heinersdorf</option>
-                        <option value="05">Karow</option>
-                        <option value="11">Niederschönhausen</option>
-                        <option value="07">Pankow</option>
-                        <option value="01">Prenzlauer Berg</option>
-                        <option value="12">Rosenthal</option>
-                        <option value="06">Stadtrandsiedlung Malchow</option>
-                        <option value="02">Weißensee</option>
-                        <option value="13">Wilhelmsruh</option>
+                        <option value="07" data-hashtag="#pankow">Alt-Pankow</option>
+                        <option value="03" data-hashtag="#blankenburg">Blankenburg</option>
+                        <option value="08" data-hashtag="#blankenfelde">Blankenfelde</option>
+                        <option value="09" data-hashtag="#buch">Buch</option>
+                        <option value="10" data-hashtag="#französischbuchholz">Französisch Buchholz</option>
+                        <option value="04" data-hashtag="#heinersdorf">Heinersdorf</option>
+                        <option value="05" data-hashtag="#karow">Karow</option>
+                        <option value="11" data-hashtag="#niederschönhausen">Niederschönhausen</option>
+                        <option value="01" data-hashtag="#prenzlauerberg">Prenzlauer Berg</option>
+                        <option value="12" data-hashtag="#rosenthal">Rosenthal</option>
+                        <option value="06" data-hashtag="#malchow">Stadtrandsiedlung Malchow</option>
+                        <option value="02" data-hashtag="#weissensee">Weißensee</option>
+                        <option value="13" data-hashtag="#wilhelmsruh">Wilhelmsruh</option>
                     </select>
                 </div>
             </div>
@@ -99,62 +99,15 @@
         <div id="sign-select-line" class="sign config" style="display: none;">
             <div id="sign-line-headline" class="signLine"></div>
             <div>
-                <a href="#" data-key="area" data-value="overview"><i class="fas fa-arrow-left"></i> Zeige ganz Pankow</a>
+                <a href="#" data-key="area" data-value="overview"><i class="fas fa-arrow-left"></i> Zeige ganz Pankow</a><br>
+                <a href="https://gruenepankow.de/themen/verkehrswende/oeffis-vor-unser-plan-fuer-pankow/" id="link-to-story"><i class="fas fa-arrow-left"></i> Zurück zum Text</a>
             </div>
-            <div>
+            <div class="top-line">
                 <div id="line-list"></div>
             </div>
-        </div>
-        <div class="sign visibleWithoutErrors" id="infoSign" style="display: none !important;">
-            <h3>
-                Schulplätze an Grundschulen
-            </h3>
-            <div class="signLine">
-                Berlin-Mitte, Lichtenberg und Marzahn-Hellersdorf
+            <div class="top-line">
+                Tippe auf den Namen eines Busses um ihn auszuwählen.
             </div>
-            <div>
-                Stöbern sie auf der Karte und klicken sie auf einzelne Schulen für weitere Informationen.
-            </div>
-            <div class="visibleWithData hideMobile" style="padding-bottom: 0;">
-                Oder suchen sie nach einer Schule:
-            </div>
-            <div class="searchInput visibleWithData hideMobile">
-                <input type="text" name="schools" id="autocomplete" placeholder="hier suchen" />
-                <div><i class="fa fa-search" aria-hidden="true"></i></div>
-            </div>
-            <div class="visibleWithoutData center">
-                <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
-            </div>
-            <div class="hideMobile" style="padding: .5em 0 0 0">
-                <img src="assets/bima-rahmanda-unsplash.png" style="width: 100%">
-            </div>
-            <div class="showMobile" style="font-style: italic">
-                <i class="fa fa-hand-o-right" aria-hidden="true"></i>
-                Hinweis: Nicht alle Funktionalitäten werden auf dem Handy angezeigt.
-            </div>
-        </div>
-        <div class="sign normal" id="receipt" data-quickinfo="_box" style="display: none !important;">
-            <h3>
-                Planungsregion <span data-quickdata="regiontitle"></span>
-            </h3>
-            <div class="signLine"><span data-quickdata="district"></span></div>
-            <div>
-                <div><span data-quickdata="title"></span> (<span data-quickdata="BSN"></span>)</div>
-                <div data-quickdata="address"></div>
-                <div><span data-quickdata="zip"></span> Berlin</div>
-                <div class="empty"></div>
-                <div data-quickdata="notes"></div>
-                <div class="empty"></div>
-                <div class="bold">Platz in der Schule</div>
-
-                <div data-hide-if-zero="startingclassesCurrent">Es werden <span data-quickdata="startingclassesCurrent"></span> Klassen aufgenommen</div>
-
-                <div data-hide-if-zero="studentsCurrent"><span data-hide-if-zero="startingclassesCurrent">Voraussichtlich ca. </span><span data-hide-if-zero="startingstudentsCurrent">Voraussichtlich ca. </span><span data-quickdata="studentsCurrent"></span> Schüler*innen</div>
-                <div><span data-quickdata="draftinessCurrent"></span> Züge mit <span data-quickdata="seatsCurrent"></span> Plätzen</div>
-                <div data-hide-if-zero="workloadCurrent"><span data-quickdata="workloadCurrent"></span>% Auslastung</div>
-                <div data-hide-if-zero="classsizesCurrent"><span data-quickdata="classsizesCurrent"></span> Ø Frequenz laut Zügigkeit</div>
-            </div>
-            <div id="receiptClose" data-quickinfo="close"><i class="fa fa-chevron-left" aria-hidden="true"></i>schließen</div>
         </div>
         <div class="sign visibleWithErrors" id="errorPAge">
             <h3>

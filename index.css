@@ -267,3 +267,95 @@
 	text-decoration: none;
 	color: #3c8025;
 }
+.top-line {
+	border-top: 1px solid #3c8025;
+	max-height: 50vh;
+	overflow-y: scroll;
+}
+#line-list {
+	line-height: 1.1rem;
+}
+.type-bus {
+	background: #95276e;
+	border-radius: 1rem;
+	border-radius: 1rem;
+	display: block;
+	float: left;
+	height: 1rem;
+	margin-right: 0.5rem;
+	transform: rotate(1deg);
+	width: 1rem;
+}
+.type-bus::after {
+	color: #fff;
+	content: 'BUS';
+	font-size: 0.4rem;
+	margin-left: 0.1rem;
+	margin-top: 0;
+	position: fixed;
+}
+.type-regio {
+	background: #ff0000;
+	display: block;
+	float: left;
+	height: 1rem;
+	margin-right: 0.5rem;
+	transform: rotate(45deg);
+	width: 1rem;
+}
+.type-regio::after {
+	color: #fff;
+	content: 'Bahn';
+	font-size: 0.4rem;
+	margin-top: 0;
+	position: fixed;
+	transform: rotate(-45deg);
+}
+.type-sbahn {
+	background: #00b300;
+	border-radius: 1rem;
+	display: block;
+	float: left;
+	height: 1rem;
+	margin-right: 0.5rem;
+	transform: rotate(1deg);
+	width: 1rem;
+}
+.type-sbahn::after {
+	color: #fff;
+	content: 'S';
+	margin-left: 0.22rem;
+	position: fixed;
+}
+.type-tram {
+	background: #be1414;
+	display: block;
+	float: left;
+	height: 1rem;
+	margin-right: 0.5rem;
+	transform: rotate(1deg);
+	width: 1rem;
+}
+.type-tram::after {
+	color: #fff;
+	content: 'Tram';
+	font-size: 0.4rem;
+	margin-left: 0;
+	margin-top: 0;
+	position: fixed;
+}
+.type-ubahn {
+	background: #115d91;
+	display: block;
+	float: left;
+	height: 1rem;
+	margin-right: 0.5rem;
+	transform: rotate(1deg);
+	width: 1rem;
+}
+.type-ubahn::after {
+	color: #fff;
+	content: 'U';
+	margin-left: 0.22rem;
+	position: fixed;
+}

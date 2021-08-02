@@ -36,9 +36,9 @@ function showLineDetails(lines) {
         var uuid = line.uuid;
 
         if (uuid === userInput.highlightLine) {
-            html += '<span style="background:#f5fa2a;margin-left:-.5rem;padding:0 .5rem;font-weight:700"><span style="padding:0 .5rem;margin-right:.5rem;background:' + color + ';"></span>' + title + '</span><br>';
+            html += '<span style="background:#f5fa2a;margin-left:-.5rem;padding:0 .5rem;font-weight:700"><span class="type-' + type + '"></span>' + title + '</span><br>';
         } else {
-            html += '<span style="padding:0 .5rem;margin-right:.5rem;background:' + color + ';"></span><a href="#" data-key="line" data-value="' + uuid + '">' + title + '</a><br>';
+            html += '<span class="type-' + type + '"></span><a href="#" data-key="line" data-value="' + uuid + '">' + title + '</a><br>';
         }
     }
 
@@ -111,7 +111,7 @@ function dataUpdated(fitBounds) {
             map.removeLayer(layer);
             layer.options.weight = '4';
             map.addLayer(layer);
-//            lines.push(layer.feature.properties);
+            lines.push(layer.feature.properties);
         } else {
             map.removeLayer(layer);
             layer.options.weight = '4';
@@ -128,7 +128,7 @@ function dataUpdated(fitBounds) {
                 key = Object.keys(userInput.highlightLayerBorder._layers)[0];
                 userInput.highlightLayerBorder = userInput.highlightLayerBorder._layers[key];
 
-                userInput.highlightLayerBorder.options.color = '#8dcf7f';
+                userInput.highlightLayerBorder.options.color = '#f5fa2a';
                 userInput.highlightLayerBorder.options.weight = parseInt(layer.options.weight, 10) + 10;
             }
 
@@ -154,13 +154,16 @@ function dataUpdated(fitBounds) {
         $('#sign-select-area').show();
         $('#sign-select-line').hide();
     } else {
+        var hash = '';
         $('#sign-line-headline').text('');
         $("#select-area option").each(function() {
             if ($(this).val() === userInput.areaId) {
                 $('#sign-line-headline').text($(this).text());
+                hash = $(this).data('hashtag');
             }
         });
 
+        $('#link-to-story').attr('href', 'https://gruenepankow.de/themen/verkehrswende/oeffis-vor-unser-plan-fuer-pankow/' + hash);
         $('#sign-select-area').hide();
         $('#sign-select-line').show();
     }

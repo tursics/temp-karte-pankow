@@ -3,6 +3,7 @@ var userInput = {
     highlightLine: null,
     highlightLayer: null,
     highlightLayerBorder: null,
+    selectedType: ['bus'],
 };
 
 var layers = {
@@ -109,6 +110,10 @@ function dataUpdated(fitBounds) {
         var layer = layers.lines[l];
         map.removeLayer(layer);
         layer.options.weight = '4';
+
+        if (-1 === userInput.selectedType.indexOf(layer.feature.properties.type)) {
+            continue;
+        }
 
         if (userInput.highlightLine === layer.feature.properties.uuid) {
             userInput.highlightLayer = L.geoJson(layer.toGeoJSON());

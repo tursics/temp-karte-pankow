@@ -275,6 +275,9 @@
 #line-list {
 	line-height: 1.1rem;
 }
+#link-to-story {
+	display: none;
+}
 .type-bus {
 	background: #95276e;
 	border-radius: 1rem;

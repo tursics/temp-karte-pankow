@@ -107,31 +107,29 @@ function dataUpdated(fitBounds) {
     var lines = [];
     for (var l = 0; l < layers.lines.length; ++l) {
         var layer = layers.lines[l];
+        map.removeLayer(layer);
+        layer.options.weight = '4';
+
+        if (userInput.highlightLine === layer.feature.properties.uuid) {
+            userInput.highlightLayer = L.geoJson(layer.toGeoJSON());
+            var key = Object.keys(userInput.highlightLayer._layers)[0];
+            userInput.highlightLayer = userInput.highlightLayer._layers[key];
+
+            userInput.highlightLayer.options.color = layer.options.color;
+            userInput.highlightLayer.options.weight = layer.options.weight;
+
+            userInput.highlightLayerBorder = L.geoJson(layer.toGeoJSON());
+            key = Object.keys(userInput.highlightLayerBorder._layers)[0];
+            userInput.highlightLayerBorder = userInput.highlightLayerBorder._layers[key];
+
+            userInput.highlightLayerBorder.options.color = '#f5fa2a';
+            userInput.highlightLayerBorder.options.weight = parseInt(layer.options.weight, 10) + 10;
+        }
+
         if (userInput.areaId === 'all') {
-            map.removeLayer(layer);
-            layer.options.weight = '4';
             map.addLayer(layer);
             lines.push(layer.feature.properties);
         } else {
-            map.removeLayer(layer);
-            layer.options.weight = '4';
-
-            if (userInput.highlightLine === layer.feature.properties.uuid) {
-                userInput.highlightLayer = L.geoJson(layer.toGeoJSON());
-                var key = Object.keys(userInput.highlightLayer._layers)[0];
-                userInput.highlightLayer = userInput.highlightLayer._layers[key];
-
-                userInput.highlightLayer.options.color = layer.options.color;
-                userInput.highlightLayer.options.weight = layer.options.weight;
-
-                userInput.highlightLayerBorder = L.geoJson(layer.toGeoJSON());
-                key = Object.keys(userInput.highlightLayerBorder._layers)[0];
-                userInput.highlightLayerBorder = userInput.highlightLayerBorder._layers[key];
-
-                userInput.highlightLayerBorder.options.color = '#f5fa2a';
-                userInput.highlightLayerBorder.options.weight = parseInt(layer.options.weight, 10) + 10;
-            }
-
             if (layerSelected) {
                 var intersection = turf.lineIntersect(layer.toGeoJSON(), layerSelected.toGeoJSON());
                 if (intersection && intersection.features && (intersection.features.length > 0)) {

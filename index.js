@@ -29,6 +29,8 @@ function initLayers() {
 function showLineDetails(lines) {
     var html = '';
 
+    html = 'Kurzfristige Maßnahmen (bis 2026)<br><br>';
+
     for (var l = 0; l < lines.length; ++l) {
         var line = lines[l];
         var color = line.linecolor;

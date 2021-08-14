@@ -6,7 +6,7 @@ Dann einfach mal [hierher](https://tursics.de/story/oepnv-pankow/) schauen.
 
 Wer lieber PDFs mag, dann [dieses PDF](https://gruene-pankow.de/userspace/BE/kv_pankow/Wir/in_den_Arbeitsgruppen/AG_Verkehr/21-06-08_Oeffis-Vor_UnserPlanFuerPankow_Beschlussversion.pdf) anschauen von der [AG-Seite](https://gruene-pankow.de/wir/in-pankow/arbeitsgruppen/ag-verkehr/).
 
-## Datenquellen:
+## Datenquellen
 
 - [Datenlizenz Deutschland - Namensnennung - Version 2.0](https://www.govdata.de/dl-de/by-2-0)
   - [Geoportal Berlin / ALKIS Berlin Ortsteil](https://fbinter.stadt-berlin.de/fb/index.jsp?loginkey=zoomStart&mapId=ortsteil@senstadt&bbox=364375,5802285,421587,5835248)

@@ -3,7 +3,7 @@ var userInput = {
     highlightLine: null,
     highlightLayer: null,
     highlightLayerBorder: null,
-    selectedType: ['bus'],
+    selectedType: ['bus', 'ubahn'],
 };
 
 var layers = {

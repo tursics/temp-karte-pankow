@@ -1,9 +1,10 @@
 var userInput = {
 	areaId: '',
+    dotted: '6, 8',
     highlightLine: null,
     highlightLayer: null,
     highlightLayerBorder: null,
-    selectedType: ['bus', 'ubahn'],
+    selectedType: ['bus', 'ubahn', 'ubahn-dotted'],
 };
 
 var layers = {
@@ -15,7 +16,7 @@ var layers = {
 function initLayers() {
     var map = ddj.map.get();
     map.eachLayer(function(layer) {
-        var lineTypes = ['bus', 'tram', 'ubahn', 'sbahn', 'regio'];
+        var lineTypes = ['bus', 'tram', 'ubahn', 'ubahn-dotted', 'sbahn', 'regio'];
         if (layer && layer.feature && layer.feature.properties && layer.feature.properties.bezeich && (layer.feature.properties.bezeich === 'AX_KommunalesGebiet')) {
             layers.areas.push(layer);
         } else if (layer && layer.feature && layer.feature.properties && layer.feature.properties.type && (-1 !== lineTypes.indexOf(layer.feature.properties.type.trim()))) {
@@ -37,6 +38,10 @@ function showLineDetails(lines) {
         var type = line.type;
         var title = line.title;
         var uuid = line.uuid;
+
+        if (type.indexOf('-dotted') > 0) {
+            type = type.substr(0, type.length - 7);
+        }
 
         if (uuid === userInput.highlightLine) {
             html += '<span style="background:#f5fa2a;margin-left:-.5rem;padding:0 .5rem;font-weight:700"><span class="type-' + type + '"></span>' + title + '</span><br>';
@@ -117,6 +122,8 @@ function dataUpdated(fitBounds) {
             continue;
         }
 
+        var dotted = (layer.feature.properties.type.indexOf('-dotted') > 0);
+
         if (userInput.highlightLine === layer.feature.properties.uuid) {
             userInput.highlightLayer = L.geoJson(layer.toGeoJSON());
             var key = Object.keys(userInput.highlightLayer._layers)[0];
@@ -124,6 +131,7 @@ function dataUpdated(fitBounds) {
 
             userInput.highlightLayer.options.color = layer.options.color;
             userInput.highlightLayer.options.weight = layer.options.weight;
+            userInput.highlightLayer.options.dashArray = dotted ? userInput.dotted : null;
 
             userInput.highlightLayerBorder = L.geoJson(layer.toGeoJSON());
             key = Object.keys(userInput.highlightLayerBorder._layers)[0];
@@ -134,12 +142,16 @@ function dataUpdated(fitBounds) {
         }
 
         if (userInput.areaId === 'all') {
+            layer.options.dashArray = dotted ? userInput.dotted : null;
+            layer.options.opacity = dotted ? 0.5 : 1;
             map.addLayer(layer);
             lines.push(layer.feature.properties);
         } else {
             if (layerSelected) {
                 var intersection = turf.lineIntersect(layer.toGeoJSON(), layerSelected.toGeoJSON());
                 if (intersection && intersection.features && (intersection.features.length > 0)) {
+                    layer.options.dashArray = dotted ? userInput.dotted : null;
+                    layer.options.opacity = dotted ? 0.5 : 1;
                     map.addLayer(layer);
                     lines.push(layer.feature.properties);
                 }

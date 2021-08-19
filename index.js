@@ -4,7 +4,7 @@ var userInput = {
     highlightLine: null,
     highlightLayer: null,
     highlightLayerBorder: null,
-    selectedType: ['bus', 'ubahn', 'ubahn-dotted'],
+    selectedType: ['bus', 'ubahn', 'ubahn-dotted', 'sbahn', 'sbahn-dotted'],
 };
 
 var layers = {
@@ -143,7 +143,7 @@ function dataUpdated(fitBounds) {
 
         if (userInput.areaId === 'all') {
             layer.options.dashArray = dotted ? userInput.dotted : null;
-            layer.options.opacity = dotted ? 0.5 : 1;
+            layer.options.opacity = dotted ? 0.75 : 1;
             map.addLayer(layer);
             lines.push(layer.feature.properties);
         } else {
@@ -151,7 +151,7 @@ function dataUpdated(fitBounds) {
                 var intersection = turf.lineIntersect(layer.toGeoJSON(), layerSelected.toGeoJSON());
                 if (intersection && intersection.features && (intersection.features.length > 0)) {
                     layer.options.dashArray = dotted ? userInput.dotted : null;
-                    layer.options.opacity = dotted ? 0.5 : 1;
+                    layer.options.opacity = dotted ? 0.75 : 1;
                     map.addLayer(layer);
                     lines.push(layer.feature.properties);
                 }

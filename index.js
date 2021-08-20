@@ -16,7 +16,7 @@ var layers = {
 function initLayers() {
     var map = ddj.map.get();
     map.eachLayer(function(layer) {
-        var lineTypes = ['bus', 'tram', 'ubahn', 'ubahn-dotted', 'sbahn', 'regio'];
+        var lineTypes = ['bus', 'tram', 'ubahn', 'ubahn-dotted', 'sbahn', 'sbahn-dotted', 'regio'];
         if (layer && layer.feature && layer.feature.properties && layer.feature.properties.bezeich && (layer.feature.properties.bezeich === 'AX_KommunalesGebiet')) {
             layers.areas.push(layer);
         } else if (layer && layer.feature && layer.feature.properties && layer.feature.properties.type && (-1 !== lineTypes.indexOf(layer.feature.properties.type.trim()))) {
